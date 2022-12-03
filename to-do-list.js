@@ -3,7 +3,7 @@ console.log(input)
 let todo = {
     0: "Wake up"
 }
-while (input.toLowerCase() !== "q"){
+while (input.toLowerCase() !== "quit"){
     if (input.toLowerCase() === "new"){
         let addTo = prompt("What do you want to add?");
         let inTodo = Object.keys(todo).length;
