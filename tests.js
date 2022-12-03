@@ -2,7 +2,5 @@ let todo = {
     0: "Wake up",
     1: "qué tal"
 }
-let inTodo = Object.keys(todo).length
-console.log(inTodo)
-todo[inTodo] = "hola"
+delete todo["1"]
 console.log(todo)
