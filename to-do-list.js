@@ -3,7 +3,7 @@ console.log(input)
 let todo = {
     0: "Wake up"
 }
-while (input.toLowerCase() !== "quit"){
+while (input.toLowerCase() !== "quit" && input.toLowerCase() !== "q"){
     if (input.toLowerCase() === "new"){
         let addTo = prompt("What do you want to add?");
         let inTodo = Object.keys(todo).length;
@@ -18,16 +18,24 @@ while (input.toLowerCase() !== "quit"){
         console.log("**********")
     }
     else if (input.toLowerCase() === "delete"){
-        let del = prompt("What number of the list do you want to delete?")
-        for (let i of Object.keys(todo)){
-            if (i === del){
-                console.log(`${del} deleted from list.`)
-                console.log("**********") 
-                delete todo[i]
-                
+        let del = parseInt(prompt("What number of the list do you want to delete?"))
+        console.log(del)
+        if (del >= Object.keys(todo).length){
+            console.log("You don't have so many thigs to do")
+            console.log("**********")
+        } else if (!Number.isNaN(del)){
+            for (let i of Object.keys(todo)){
+                if (parseInt(i) === del){
+                    console.log(`${todo[del]} deleted from list.`)
+                    console.log("**********") 
+                    delete todo[i]                    
+                }                
             }
-            
+        } else{
+            console.log('Invalid index')
+            console.log("**********")
         }
+        
     }
     input = prompt("What do you want to do?")
     
